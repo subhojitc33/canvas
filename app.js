@@ -61,7 +61,7 @@ app.post("/signedrequest", function(req, res) {
       context: context,
       contacts: contactRecords
     };
-    res.render("index", { payload: payload });
+    res.render("index", { payload: signedRequest });
   });
 });
 app.get("/signedrequest", function(req, res) {
