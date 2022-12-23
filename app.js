@@ -24,7 +24,7 @@ app.use(
       defaultSrc: ["'self'", "default.example"],
       scriptSrc: ["'self'", "js.example.com"],
       objectSrc: ["'none'"],
-	    frame-ancestors : ["'self'", "'https://newdev3-dev-ed.my.salesforce.com/'", "https://newdev3-dev-ed.lightning.force.com/'"],
+	    frame-ancestors : ["'self'", "'newdev3-dev-ed.my.salesforce.com'", "newdev3-dev-ed.lightning.force.com'"],
       upgradeInsecureRequests: [],
     },
     reportOnly: false,
