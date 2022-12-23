@@ -27,6 +27,11 @@ app.get("/", function(req, res) {
 
   res.render("welcome");
 });
+app.post("/", function(req, res) {
+	 res.header('Content-Security-Policy', "frame-ancestors 'self' https://newdev3-dev-ed.my.salesforce.com");
+
+  res.render("welcome");
+});
 
 // SF call POST us on this URI with signed request
 app.post("/signedrequest", function(req, res) {
