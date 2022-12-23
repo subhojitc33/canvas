@@ -17,7 +17,15 @@
 
   const imageUrl = "https://newdev3-dev-ed--c.vf.force.com/resource/1620819190000/siteAsset_52cebe8ad26545e59472ffd4b8ca6c39";
 
-fetch(imageUrl)
+fetch(imageUrl,{
+    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer' 
+  })
   .then(response => response.blob())
   .then(imageBlob => {
       // Then create a local URL for that image and print it 
