@@ -25,7 +25,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ entended: true }));
 app.use(function (req, res, next) {
-  res.setHeader(''Content-Security-Policy', "frame-ancestors  https://*.salesforce.com/ https://*.force.com/");
+  res.setHeader('Content-Security-Policy', "frame-ancestors  https://*.salesforce.com/ https://*.force.com/");
 		
  next();
 });
