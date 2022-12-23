@@ -57,7 +57,17 @@ app.post("/signedrequest", function(req, res) {
     res.render("index", { payload: payload });
   });
 });
-
+app.get("/signedrequest", function(req, res) {
+	var consumerKey = process.env.CANVAS_CONSUMER_CLIENT;
+	var domain='https://login.salesforce.com/services/oauth2/authorize?response_type=token&client_id=';
+	domain=domain+consumerKey;
+	var redirect=process.env.CANVAS_REDIRECT_UI;
+	domain=domain+'&redirect_uri='+redirect;
+	domain=domain+'&scope='+process.env.CANVAS_SCOPE;
+ res.redirect(domain);	
+	
+	
+});
 
 // POST to toolbar URI - make this uri as Canvas App URL in the connected app (AccountPositionApp2) setting 
 app.post("/myevents", function(req, res) {
