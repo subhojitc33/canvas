@@ -11,10 +11,25 @@ var express = require("express"),
   request = require("request"),
   // CryptoJS = require("crypto-js"),
   decode = require("salesforce-signed-request");
+const contentSecurityPolicy = require("helmet-csp");
+
+
 var app = express();
 // make sure to set by:
 //  heroku config:set CANVAS_CONSUMER_SECRET=adsfadsfdsfsdafsdfsdf
-
+app.use(
+  contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      defaultSrc: ["'self'", "default.example"],
+      scriptSrc: ["'self'", "js.example.com"],
+      objectSrc: ["'none'"],
+	    frame-ancestors : ["'self'", "https://*.salesforce.com/", "https://*.force.com/"],
+      upgradeInsecureRequests: [],
+    },
+    reportOnly: false,
+  })
+);
 var consumerSecret = process.env.CANVAS_CONSUMER_SECRET;
 
 app.use(express.static(path.join(__dirname, "views")));
