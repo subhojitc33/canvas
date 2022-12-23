@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ entended: true }));
 // just a welcome page
 app.get("/", function(req, res) {
-	 res.header('Content-Security-Policy', "frame-ancestors 'self' https://*force.com");
+	 res.header('Content-Security-Policy', "frame-ancestors 'self' https://newdev3-dev-ed.my.salesforce.com");
 
   res.render("welcome");
 });
@@ -60,7 +60,7 @@ app.post("/signedrequest", function(req, res) {
   });
 });
 app.get("/signedrequest", function(req, res) {
-	 res.header('Content-Security-Policy', "frame-ancestors 'self' https://*force.com");
+	 res.header('Content-Security-Policy', "frame-ancestors 'self' https://newdev3-dev-ed.my.salesforce.com");
 	var consumerKey = process.env.CANVAS_CONSUMER_CLIENT;
 	var domain='https://newdev3-dev-ed.my.salesforce.com/services/oauth2/authorize?response_type=token&client_id=';
 	domain=domain+consumerKey;
