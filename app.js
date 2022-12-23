@@ -59,7 +59,7 @@ app.post("/signedrequest", function(req, res) {
 });
 app.get("/signedrequest", function(req, res) {
 	var consumerKey = process.env.CANVAS_CONSUMER_CLIENT;
-	var domain='https://login.salesforce.com/services/oauth2/authorize?response_type=token&client_id=';
+	var domain='https://newdev3-dev-ed.my.salesforce.com/services/oauth2/authorize?response_type=token&client_id=';
 	domain=domain+consumerKey;
 	var redirect=process.env.CANVAS_REDIRECT_UI;
 	domain=domain+'&redirect_uri='+redirect;
