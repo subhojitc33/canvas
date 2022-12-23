@@ -23,12 +23,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ entended: true }));
 // just a welcome page
 app.get("/", function(req, res) {
-	 res.header('Content-Security-Policy', "frame-ancestors 'self' https://newdev3-dev-ed.my.salesforce.com https://newdev3-dev-ed.lightning.force.com/");
+	 res.header('Content-Security-Policy', "frame-ancestors 'self' https://newdev3-dev-ed.my.salesforce.com/ https://newdev3-dev-ed.lightning.force.com/");
 
   res.render("welcome");
 });
 app.post("/", function(req, res) {
-	 res.header('Content-Security-Policy', "frame-ancestors 'self' https://newdev3-dev-ed.my.salesforce.com https://newdev3-dev-ed.lightning.force.com/");
+	 res.header('Content-Security-Policy', "frame-ancestors 'self' https://newdev3-dev-ed.my.salesforce.com/ https://newdev3-dev-ed.lightning.force.com/");
 
   res.render("welcome");
 });
