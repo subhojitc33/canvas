@@ -17,25 +17,18 @@ const contentSecurityPolicy = require("helmet-csp");
 var app = express();
 // make sure to set by:
 //  heroku config:set CANVAS_CONSUMER_SECRET=adsfadsfdsfsdafsdfsdf
-app.use(
-  contentSecurityPolicy({
-    useDefaults: true,
-    directives: {
-      defaultSrc: ["'self'", "default.example"],
-      scriptSrc: ["'self'", "js.example.com"],
-      objectSrc: ["'none'"],
-	    frame-ancestors : ["'none'"],
-      upgradeInsecureRequests: [],
-    },
-    reportOnly: false,
-  })
-);
+
 var consumerSecret = process.env.CANVAS_CONSUMER_SECRET;
 
 app.use(express.static(path.join(__dirname, "views")));
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ entended: true }));
+app.use(function (req, res, next) {
+  res.setHeader(''Content-Security-Policy', "frame-ancestors  https://*.salesforce.com/ https://*.force.com/");
+		
+ next();
+});
 // just a welcome page
 app.get("/", function(req, res) {
 	 res.header('Content-Security-Policy', "frame-ancestors  https://*.salesforce.com/ https://*.force.com/");
