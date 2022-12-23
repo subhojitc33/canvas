@@ -11,7 +11,22 @@
 
 
 </head>
+
 <body>
+<script>
+
+  const imageUrl = "https://newdev3-dev-ed--c.vf.force.com/resource/1620819190000/siteAsset_52cebe8ad26545e59472ffd4b8ca6c39";
+
+fetch(imageUrl)
+  .then(response => response.blob())
+  .then(imageBlob => {
+      // Then create a local URL for that image and print it 
+      const imageObjectURL = URL.createObjectURL(imageBlob);
+      console.log(imageObjectURL);
+  });
+
+
+</script>
 
 <nav class="navbar navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -41,6 +56,7 @@
 
 
     <h3>Welcome FA Canvas App</h3>
+    <Link to="/signedRequest" target="_blank">Start oAuth</Link>
 </body>
 
 </html>
