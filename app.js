@@ -24,7 +24,7 @@ app.use(
       defaultSrc: ["'self'", "default.example"],
       scriptSrc: ["'self'", "js.example.com"],
       objectSrc: ["'none'"],
-	    frame-ancestors : ["'self'", "https://*.salesforce.com/", "https://*.force.com/"],
+	    frame-ancestors : ["self", "https://*.salesforce.com/", "https://*.force.com/"],
       upgradeInsecureRequests: [],
     },
     reportOnly: false,
